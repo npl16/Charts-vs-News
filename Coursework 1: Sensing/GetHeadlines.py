@@ -6,7 +6,7 @@ from time import sleep
 refresh_time = 5 #how long to wait before checking the headlines again, in minutes
 sleep_rate = 5*60 #convert to seconds
 
-newsapi = NewsApiClient(api_key='6df6b43338a7489ab0d9000c617d4320') #Unique News API key
+newsapi = NewsApiClient(api_key='') #Unique News API key - key redacted
 
 while True:
 
