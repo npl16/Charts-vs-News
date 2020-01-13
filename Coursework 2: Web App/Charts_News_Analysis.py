@@ -47,7 +47,7 @@ def process_text(headlines):
     return tokens
 
 def analyseHeadlines(posThresh,negThresh):
-    newsapi = NewsApiClient(api_key='6df6b43338a7489ab0d9000c617d4320')
+    newsapi = NewsApiClient(api_key='') #Key redacted
     posThresh = posThresh
     negThresh = negThresh
 
