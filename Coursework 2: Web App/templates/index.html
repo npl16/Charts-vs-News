@@ -1,0 +1,73 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <center>
+            <a href="/"><img align="center" src="/static/charts_vs_news_logo.png" alt="Charts vs News Logo" height="75"></a>
+        </center>
+    </head>
+    <body>
+
+        <h1 style="text-align:center; font-family: Helvetica, Arial, sans-serif">{{page}}</h1>
+        {% if intro  %}
+            <center>
+                <p style="font-family: Helvetica, Arial, sans-serif">Charts vs News analyses the sentiment of the current UK Headlines and names of songs in the latest UK Spotify Charts.</p>
+                <p style="font-family: Helvetica, Arial, sans-serif">You can then create a playlist of chart songs whose names either match or oppose the healines' sentiment.</p>
+                <p style="font-family: Helvetica, Arial, sans-serif">First, let's get the headlines!</p>
+            </center>
+            <br>
+        {% endif %}
+
+        {% if firstheadlines %}
+        <form align="center" action='/headlines' method='POST'>
+            <button type="submit" id="newsButton">Get the latest headlines</button>
+        </form>
+        {% endif %}
+
+        {% if news %}
+            <div id="results">
+              <table align="center" class="table table-striped" style="max-width: 600;" border="1">
+                <thead>
+                  <tr>
+                    <th style="font-family: Helvetica, Arial, sans-serif">UK Headlines</th>
+                  </tr>
+                </thead>
+                {% for title in titles %}
+                  <tr>
+                    <td style="font-family: Helvetica, Arial, sans-serif">{{ titles[title] }}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+              <br>
+                <form align="center" action='/headlines' method='POST'>
+                    <button type="submit" class="btn btn-default" id="newsButton">Reload headlines</button>
+                </form>
+            </div>
+        {% endif %}
+        {% if authgranted %}
+            <p align="center" style="font-family: Helvetica, Arial, sans-serif; font-style: italic">Thank you for authorising Spotify Access!</p>
+        {% endif %}
+        {% if sentimentDesc %}
+            <center>
+                <p style="font-family: Helvetica, Arial, sans-serif">{{sentimentDesc}}</p>
+            </center>
+        {% endif %}
+        {% if news %}
+        <p align="center" style="font-family: Helvetica, Arial, sans-serif">Now, to create a playlist, please grant Spotify Access:</p>
+        <form align="center" action='/spotify' method='POST'>
+            <button type="submit" class="btn btn-default" id="authButton">Grant Spotify Access</button>
+        </form>
+        {% endif %}
+
+        {% if authgranted %}
+            <p align="center" style="font-family: Helvetica, Arial, sans-serif">You may now click below to create a playlist that either matches or opposes the sentiment of current headlines:</p>
+            <!--<br>-->
+            <form align="center" action='/match' method='POST'>
+                <button type="submit" class="btn btn-default" id="matchButton">Match</button>
+            </form>
+            <form align="center" action='/oppose' method='POST'>
+                <button type="submit" class="btn btn-default" id="opposeButton">Oppose</button>
+            </form>
+        {% endif %}
+
+    </body>
+</html>

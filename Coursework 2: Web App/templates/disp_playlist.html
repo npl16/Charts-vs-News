@@ -1,0 +1,51 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <center>
+            <a href="/"><img align="center" src="/static/charts_vs_news_logo.png" alt="Charts vs News Logo" height="75"></a>
+        </center>
+    </head>
+    <body>
+        <h1 style="text-align:center; font-family: Helvetica, Arial, sans-serif">{{page}}</h1>
+
+        <form align="center" action='/headlines' method='POST'>
+            <button type="submit" class="btn btn-default" id="newsButton">Get the latest headlines</button>
+        </form>
+
+
+        {% if info %}
+            <center>
+            <p style="font-family: Helvetica, Arial, sans-serif">{{n}} Headlines Obtained</p>
+            </center>
+        {% endif %}
+        {% if sentimentDesc  %}
+            <center>
+                <p style="font-family: Helvetica, Arial, sans-serif">{{sentimentDesc}}</p>
+            </center>
+        {% endif %}
+
+        <form align="center" action='/spotify' method='POST'>
+            <button type="submit" class="btn btn-default" id="newsButton">Grant Spotify Access</button>
+        </form>
+
+        {% if token %}
+            <center><p style="font-family: Helvetica, Arial, sans-serif; font-style: italic">Thank you for granting Spotify Authorisation!</p></center>
+        {% endif %}
+
+        {%if success%}
+            <div align="center" class="space-after">
+                <iframe src="https://open.spotify.com/embed/user/{{id}}/playlist/{{playlist_id}}" width=600px height=400px allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        {% else %}
+        <div align="center" class="space-after">
+            <p style="font-family: Helvetica, Arial, sans-serif">Unable to generate a playlist! Please try again, and ensure you allow the requested permissions when prompted. </p>
+        </div>
+        {% endif %}
+
+        <br>
+        <form align="center" action='/' method='POST'>
+            <button type="submit" class="btn btn-default" id="homeButton">Start again!</button>
+        </form>
+
+    </body>
+</html>
