@@ -17,6 +17,6 @@ NLTK, FyCharts and the Python News API must all be installed to run the code.
 ## Coursework 2: Web App
 This directory contains all files used to create and host the 'Charts vs News' web app on PythonAnywhere.
 
-The web app was made using Flask, with two custom HTML templates in the '/templates' directory.
+The web app was made using Flask, with two custom HTML templates in the '/templates' directory. The core file underpinning the web app is 'flask_app.py'.
 
 Flask-Spotify-Auth (https://github.com/vanortg/Flask-Spotify-Auth) by Greg Van Ort was used to handle Spotify authentication. Its code ('flask_spotify_auth.py', 'setup.py' and 'startup.py') is uploaded with minor modifications in the main directory with the other website code files, which include various functions for performing sentiment analysis of headlines and charts' song names, and creating a playlist that matches or opposes the news. The latter is achieved with SpotiPy (https://spotipy.readthedocs.io/en/latest/).
