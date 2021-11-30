@@ -1,5 +1,5 @@
 # Charts-vs-News
-DE4 2020 Sensing and IoT project that analyses the sentiment of UK News Headlines and names of songs in the Spotify UK Top 200 Charts (spotifycharts.com) on a daily basis, and features a web app (hosted at npl16.pythonanywhere.com) that generates a Spotify playlist with songs from the latest Spotify UK Top 200 chart whose names either oppose or match the current sentiment of UK News Headlines.
+DE4 2020 Sensing and IoT project that analyses the sentiment of UK News Headlines and names of songs in the Spotify UK Top 200 Charts (spotifycharts.com) on a daily basis, and features a web app (formerly hosted at npl16.pythonanywhere.com) that generates a Spotify playlist with songs from the latest Spotify UK Top 200 chart whose names either oppose or match the current sentiment of UK News Headlines.
 
 ## Coursework 1: Sensing
 This directory contains all data gathered over the 12-day period measured in the form of dated CSV files, and the various Python (and Python Notebook) files used to gather this data. The 'NewsLog' and 'PreviousHeadlines' CSV files were used to keep track of number of headlines obtained at each query, and the latest headlines obtained, respectively.
